@@ -63,9 +63,7 @@ void init(){
 		head1->next->status='R';
 	}
 	sort();
-//	for(head1=head;head1->next;head1=head1->next){
-//		printf("%c",head1->next->status);
-//	}
+
 	
 }
 void sort(){
@@ -103,29 +101,19 @@ void run(){
 				if (head1->next->status == 'R')
 				{
 					if (run_once(head1))
+					{
 						delete (head1);
+						print_queue();
+						printf("\n");
+					}
 					else
-						head1 = head1->next;
+						{head1 = head1->next;
+						print_queue();
+						printf("\n");}
 				}
 		}
 
-		// for (head1 = head; head1->next; head1 = head1->next)
-		// 		if (head1->next->status == 'R')
-		// 		{
-		// 			run_once(head1);
-		// 			//sort();
-		// 		}
-
-		// head1=head;
-		// while(head1->next){
-		// 	if(head1->next->time_left==0)
-		// 		delete(head1);
-		// 	else head1=head1->next;
-		// }
-
-		// for(head1=head;head1->next;head1=head1->next)
-		// 	printf("%s(p=%d,s=%c,t=%d) ", head1->next->name, head1->next->priority, head1->next->status, head1->next->time_left);
-		// printf("\n");
+		
 	}
 	printf("运行结束");
 }
@@ -140,8 +128,7 @@ int run_once(PCB* p){
 		end=1;
 		//delete(p);
 	}
-	print_queue();
-	printf("\n");
+	
 	return end;
 }
 void print_queue(){
@@ -159,10 +146,7 @@ void print_queue(){
 		
 		
 	}
-	// printf("\n");
-	// for(head1=head;head1->next;head1=head1->next)
-	// 		printf("%s(p=%d,s=%c,t=%d) ", head1->next->name, head1->next->priority, head1->next->status, head1->next->time_left);
-	// 	printf("\n");
+	
 }
 void delete(PCB *p){
 	PCB *t=p->next;
