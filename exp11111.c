@@ -22,20 +22,20 @@ int main(){
 }
 void init(){
     int n=ProcessNum;
-    head=(PCB*)malloc(sizeof(PCB));
-    PCB1=(PCB*)malloc(sizeof(PCB));
-    PCB2=(PCB*)malloc(sizeof(PCB));
-    PCB3=(PCB*)malloc(sizeof(PCB));
-    PCB4=(PCB*)malloc(sizeof(PCB));
-    PCB5=(PCB*)malloc(sizeof(PCB));
-    head->next=PCB1;
-    PCB1->next=PCB2;
-    PCB2->next=PCB3;
-    PCB3->next=PCB4;
-    PCB4->next=PCB5;
-    PCB5->next=NULL;
+    int i;
+	PCB *p;
+	head=(PCB*)malloc(sizeof(PCB));
+	p=head;
+	for(i=0;i<n;i++){
+		
+		PCB *t=(PCB*)malloc(sizeof(PCB));
+		p->next=t;
+		p=t;
+	}
+	p->next=NULL;
+    
     PCB *head1=head; 
-    int i=1;
+    i=1;
     while(head1->next)
     {
     	sprintf(head1->next->name,"%s%d","PCB",i);
